@@ -1,0 +1,68 @@
+<html>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="jquery.validate.js"></script>
+<style type="text/css">
+	.error {
+	    font: normal 10px arial;
+	    padding: 3px;
+	    margin: 3px;
+	    background-color: #ffc;
+	    border: 1px solid #c00;
+	}
+	div[form="true"] {
+		margin-left: 20px;
+	}
+</style>
+<script>
+	$(function() {
+		$.validator.addClassRules("MyRule", {
+	        required: true
+	    });
+
+		$('#myform').validate({
+	        submitHandler: function (form) { // for demo
+	            alert('submitted'); // for demo
+	            return false; // form demo
+	        },
+	        onsubmit: false,
+	        ignore: "#myform2 :input"
+	    });
+
+	    $( "#btn" ).click(function( event ) {
+	      $("#myform").valid();
+		  event.preventDefault();
+		});
+
+	    $('#myform2').validate({
+	        submitHandler: function (form) { // for demo
+	            alert('submitted'); // for demo
+	            return false; // form demo
+	        },
+	        onsubmit: false
+	    });
+
+		$( "#btn2" ).click(function( event ) {
+	      $("#myform2").valid();
+		  event.preventDefault();
+		});
+	});
+</script>
+<div>
+	<fieldset>Form1
+		<div id="myform" form="true">
+		    <input type="text" name="Generated1" class="MyRule" />
+		    <input id="btn" type="button" />
+		    <fieldset>Form2
+			    <div id="myform2" form="true">
+			    	<input type="text" name="Generated2" class="MyRule" />
+			    	<input id="btn2" type="button" />
+			    </div>
+			</fieldset>
+		</div>
+	</fieldset>
+</div>
+</body>
+</html>
