@@ -1,3 +1,6 @@
-- jquery.validate (https://github.com/jzaefferer/jquery-validation) + DIV validation
+div-jquery-validation
+==============
 
-- untitled.html: Example usage. Important ADD form="true" attribute on a DIV elements!
+- **jquery.validate** (https://github.com/jzaefferer/jquery-validation) + DIV validation
+
+- **untitled.html**: Example usage. Important ADD form="true" attribute on a DIV elements!
