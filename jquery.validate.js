@@ -341,13 +341,12 @@ $.extend( $.validator, {
 			});
 
 			function delegate( event ) {
-				var validator;
-				var form = this[ 0 ].form;
+				var validator, form;
+				form = this[ 0 ].form;
 
 				if ( !form ) {
 					form = $( this ).closest( "div[form='true']" ).get( 0 );
 				}
-				
 				validator = $.data( form, "validator" ),
 					eventType = "on" + event.type.replace( /^validate/, "" ),
 					settings = validator.settings;
