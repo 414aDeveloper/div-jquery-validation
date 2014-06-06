@@ -341,13 +341,14 @@ $.extend( $.validator, {
 			});
 
 			function delegate( event ) {
+				var validator;
 				var form = this[ 0 ].form;
 
 				if ( !form ) {
 					form = $( this ).closest( "div[form='true']" ).get( 0 );
 				}
 				
-				var validator = $.data( form , "validator" ),
+				validator = $.data( form, "validator" ),
 					eventType = "on" + event.type.replace( /^validate/, "" ),
 					settings = validator.settings;
 				if ( settings[ eventType ] && !this.is( settings.ignore ) ) {
@@ -984,7 +985,7 @@ $.extend( $.validator, {
 
 	staticRules: function( element ) {
 		if ( element.form ) {
-			validator = $.data( element.form , "validator" );
+			validator = $.data( element.form, "validator" );
 		} else {
 			validator = $.data( $( element ).closest( "div[form='true']" ).get( 0 ), "validator");
 		}
