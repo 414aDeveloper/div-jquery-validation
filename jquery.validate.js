@@ -341,7 +341,7 @@ $.extend( $.validator, {
 			});
 
 			function delegate( event ) {
-				var validator, form;
+				var validator, form, eventType;
 				form = this[ 0 ].form;
 
 				if ( !form ) {
@@ -349,9 +349,9 @@ $.extend( $.validator, {
 				}
 				validator = $.data( form, "validator" ),
 					eventType = "on" + event.type.replace( /^validate/, "" ),
-					settings = validator.settings;
-				if ( settings[ eventType ] && !this.is( settings.ignore ) ) {
-					settings[ eventType ].call( validator, this[ 0 ], event );
+					this.settings = validator.settings;
+				if ( this.settings[ eventType ] && !this.is( this.settings.ignore ) ) {
+					this.settings[ eventType ].call( validator, this[ 0 ], event );
 				}
 			}
 			$( this.currentForm )
